@@ -101,7 +101,7 @@ check_deps() {
     local deps=("nc" "openssl" "jq" "timeout")
     for cmd in "${deps[@]}"; do
         if ! command -v "$cmd" &> /dev/null; then
-            echo -e "${COLOR_ERROR}Error: Critical dependency '$cmd' is missing.${NC}"
+            echo -e "${COLOR_ERROR}Error: Critical dependency '$cmd' is missing.${NC}" >&2
             exit 1
         fi
     done
@@ -135,6 +135,23 @@ resolve_provider() {
         "comcast"|"xfinity") echo "smtp.comcast.net" ;;
         *) echo "$1" ;;
     esac
+}
+
+##
+# @brief Prints the first address a hostname resolves to.
+# Termux has no getent (bionic libc), so fall back to dig from dnsutils.
+# @param $1 The hostname.
+#
+resolve_ip() {
+    if command -v getent &> /dev/null; then
+        getent hosts "$1" | awk '{print $1}' | head -n 1
+    elif command -v dig &> /dev/null; then
+        # +short also prints CNAME targets; keep only address lines.
+        { dig +short A "$1"; dig +short AAAA "$1"; } | grep -E '^[0-9.]+$|:' | head -n 1
+    else
+        echo -e "${COLOR_ERROR}Error: need getent or dig (pkg install dnsutils).${NC}" >&2
+        return 1
+    fi
 }
 
 # --- Tailscale Policy Check ---------------------------------------------------
@@ -241,7 +258,7 @@ run_check() {
     # DNS Check
     local target_ip
     echo -ne "Resolving DNS... "
-    if target_ip=$(getent hosts "$target_host" | awk '{print $1}' | head -n 1); then
+    if target_ip=$(resolve_ip "$target_host"); then
         # Check if getent returned an IP (could fail for a known host with no IP)
         [[ -z "$target_ip" ]] && { echo -e "[${COLOR_ERROR}FAIL${NC}] - No IP Address found"; return; }
         echo -e "[${COLOR_SUCCESS}OK${NC}] -> $target_ip"
