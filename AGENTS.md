@@ -2,7 +2,7 @@
 
 Zsh profile (oh-my-zsh, agnoster) being ported from Debian to **Android / Termux**. Dev happens on Windows; the target is Termux. Never assume a Debian host.
 
-Docs: `docs/CONTEXT.md` (layout, status), `docs/ENGINEERING.md` (rules, commands), `docs/ROADMAP.md` (plan), `docs/TASKS.md` (open work). Read them before changing anything. This file is the short version.
+Docs: `README.md` (users), `docs/CONTEXT.md` (layout, status), `docs/ENGINEERING.md` (rules, commands), `docs/ROADMAP.md` (plan), `docs/TASKS.md` (open work). Read them before changing anything. This file is the short version.
 
 ## Layout
 

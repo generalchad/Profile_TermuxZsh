@@ -124,14 +124,9 @@ Everything is written and syntax-checked on Windows but has never run on Termux.
 
 - [ ] **F4. SSH into the phone.** **[needs decision]**: should `sshd` start automatically with every shell, or only by hand? Recommended: by hand. Why: testing this repo is far easier from a PC keyboard.
   1. Add `openssh` to `PACKAGES` (see Recipes).
-  2. Add a short "SSH" section to a README (see F5) with: run `passwd` once to set a password; run `sshd` to start; `whoami` gives the user name; from the PC, `ssh -p 8022 <user>@<phone-ip>` (`myip` shows the IP). Termux's sshd uses port **8022**, not 22.
+  2. Add a short "SSH" section to `README.md` with: run `passwd` once to set a password; run `sshd` to start; `whoami` gives the user name; from the PC, `ssh -p 8022 <user>@<phone-ip>` (`myip` shows the IP). Termux's sshd uses port **8022**, not 22.
   3. **[needs device]**: connect from a PC.
   4. Commit: `feat: install openssh for remote access`.
-
-- [ ] **F5. README.** **[needs decision]**: the maintainer gives the repo URL.
-  1. Create `README.md` at the root, at most about 40 lines, for a user (not a developer): what this is (one sentence); install (`pkg install -y git`, `git clone <url> ~/profile`, `cd ~/profile && ./setup-termux.sh --deploy`, restart Termux); what `--deploy` does and that it backs up `~/.zshrc`; how to undo (copy the `.bak` file back); the aliases worth knowing (`myip`, `checksmtp <host>`, `cheat <cmd>`, `weather <city>`, `cls`, `reload-zsh`).
-  2. Link it from `AGENTS.md`'s Docs line.
-  3. Commit: `docs: add a README`.
 
 - [ ] **F6. Clipboard helpers.** **[needs decision]**: only if the maintainer uses the Termux:API app. Idea: `myip | termux-clipboard-set` style aliases. Don't start until the maintainer names the exact aliases.
 
@@ -141,3 +136,4 @@ One line each: file, what you saw, suggested task.
 
 - `bin/checksmtp.sh` `resolve_provider`: `proton` resolves to `127.0.0.1` ("for local testing"), so `checksmtp proton` tests the phone itself. **[needs decision]**: point it at `smtp.protonmail.ch`, or remove the alias.
 - `setup-termux.sh`: `yes | pkg update ... || true` hides a failed index update; the upgrade line after it would then fail with a less clear error. Consider dropping `|| true`.
+- `.zshrc` alias `p`: `p name` runs `ps aux | grep -v grep name`, so `name` is read as a file. Suggested: make `p` a function, `p() { ps aux | grep -i -- "$1" | grep -v grep; }`, and update `README.md`.
