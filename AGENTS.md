@@ -7,7 +7,7 @@ Docs: `docs/CONTEXT.md` (layout, status), `docs/ENGINEERING.md` (rules, commands
 ## Layout
 
 - `.zshrc` — the profile. Sections: env/PATH, oh-my-zsh, aliases (system, navigation, network, SMTP), micro functions, zellij autostart.
-- `bin/` — helper scripts, deployed to `~/bin`: `checksmtp.sh`, `extract.sh`, `formatusb.sh`, `whatsmyip.sh`.
+- `bin/` — helper scripts, deployed to `~/bin`: `checksmtp.sh`, `extract.sh`, `whatsmyip.sh`.
 - `setup-termux.sh` — bootstrap: installs packages, oh-my-zsh, sets zsh as login shell. Run inside Termux only.
 
 ## Termux rules
@@ -17,14 +17,14 @@ Docs: `docs/CONTEXT.md` (layout, status), `docs/ENGINEERING.md` (rules, commands
 - Hardcoded shebangs (`#!/bin/bash`) fail. Use `#!/usr/bin/env bash`, or run `termux-fix-shebang`.
 - `systemd` is absent: no `resolvectl`, no `systemctl`.
 - Android restricts `ip`, `ifconfig`, `ping` to varying degrees by OS version. Scripts must degrade gracefully.
-- No block-device access (`lsblk`, `parted`, `mkfs.vfat`, `wipefs`) without root. `formatusb.sh` and its aliases don't belong in the port.
+- No block-device access (`lsblk`, `parted`, `mkfs.vfat`, `wipefs`) without root. (Why `formatusb.sh` was dropped.)
 - No GUI/VS Code. Editor falls back to `nvim` → `vi`.
 - Shared storage requires `termux-setup-storage` (creates `~/storage/...`). Don't assume `~/Desktop`, `~/Documents`, `~/Downloads`.
 - `nvm` is unsupported/fragile on Termux; use the `nodejs` pkg.
 
 ## Porting status
 
-`.zshrc` is ported (untested on-device). `bin/` is not: `checksmtp.sh`, `extract.sh`, `whatsmyip.sh` need Termux checks; `formatusb.sh` is to be deleted. See `docs/TASKS.md`.
+`.zshrc` is ported (untested on-device). `bin/` is not: `checksmtp.sh`, `extract.sh`, `whatsmyip.sh` need Termux checks. See `docs/TASKS.md`.
 
 ## Conventions
 

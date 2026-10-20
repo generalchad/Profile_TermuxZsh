@@ -13,7 +13,7 @@ Remove or replace the Debian-isms listed in `CONTEXT.md`. Guard optional tools. 
 ## M2. Port `bin/`
 - `extract.sh`, `checksmtp.sh`: fix shebang, verify deps exist as Termux packages.
 - `whatsmyip.sh`: degrade when `ip`/`grep -P` are unavailable.
-- `formatusb.sh`: drop (needs root and block devices).
+- `formatusb.sh`: dropped (D3).
 **Exit:** each remaining script runs on-device.
 
 ## M3. Termux niceties (only if wanted)

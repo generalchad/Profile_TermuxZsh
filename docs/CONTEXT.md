@@ -15,7 +15,6 @@ A zsh profile (oh-my-zsh, agnoster) ported from Debian to Android/Termux. Goals:
 | `bin/checksmtp.sh` | SMTP port checker (nc, openssl, jq, timeout). |
 | `bin/extract.sh` | Archive extractor. |
 | `bin/whatsmyip.sh` | Local + public IPs. Uses `ip` and `grep -P`. |
-| `bin/formatusb.sh` | USB formatter. Needs root and block devices; not portable to Termux. |
 
 ## Status
 

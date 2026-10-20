@@ -13,5 +13,4 @@ Open work only. One task per commit; delete a task when it's done. If the code d
 ## M2. `bin/`
 - [ ] **B1.** `checksmtp.sh`: `#!/usr/bin/env bash`; verify `nc`, `openssl`, `jq`, `timeout` work on Termux.
 - [ ] **B2.** `whatsmyip.sh`: no `grep -P` dependency; fall back when `ip` is restricted.
-- [ ] **B3.** Delete `bin/formatusb.sh`.
 - [ ] **B4.** `extract.sh`: drop `unrar` branch (no Termux package) or make it report that.
