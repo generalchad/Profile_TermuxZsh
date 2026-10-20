@@ -17,7 +17,7 @@ Remove or replace the Debian-isms listed in `CONTEXT.md`. Guard optional tools. 
 **Exit:** each remaining script runs on-device.
 
 ## M3. Termux niceties (only if wanted)
-`termux-setup-storage` bookmarks (`~/storage/...`), `termux-clipboard`/`termux-open` helpers, `~/.termux` font/colors. Decide per item; none are committed to.
+`termux-setup-storage` bookmarks (`~/storage/...`), `termux-clipboard`/`termux-open` helpers, `~/.termux` font/colors. Decide per item; none are committed to. Tasks F1–F6 in `docs/TASKS.md`.
 
 ## Decisions
 - **D1.** Deployment is opt-in (`--deploy`) so a bare run never replaces a user's profile.
