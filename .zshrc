@@ -86,7 +86,7 @@ fi
 alias checksmtp='$HOME/bin/checksmtp.sh'
 
 # --- Core Networking ---
-alias myip='whatsmyip'
+alias myip='$HOME/bin/whatsmyip.sh'
 # Ping Google DNS (Internet Connectivity Test)
 alias pingg='ping 8.8.8.8'
 # Ping Default Gateway (Local Connectivity Test)
