@@ -10,7 +10,8 @@ STAMP="$(date +%Y%m%d%H%M%S)"
 DEPLOY=0
 
 PACKAGES=(zsh git curl wget openssl-tool netcat-openbsd jq dnsutils
-          unzip zip tar 7zip neovim htop eza zoxide zellij nmap nodejs)
+          unzip zip tar 7zip neovim htop eza zoxide zellij nmap nodejs
+          iproute2 net-tools procps)
 
 log()  { printf '\033[0;36m[INFO]\033[0m %s\n' "$*" >&2; }
 warn() { printf '\033[1;33m[WARN]\033[0m %s\n' "$*" >&2; }
