@@ -24,7 +24,7 @@ Docs: `docs/CONTEXT.md` (layout, status), `docs/ENGINEERING.md` (rules, commands
 
 ## Porting status
 
-`.zshrc` is ported (untested on-device). `bin/` is not: `checksmtp.sh`, `extract.sh`, `whatsmyip.sh` need Termux checks. See `docs/TASKS.md`.
+`.zshrc` and `bin/` are ported but untested on-device. The on-device checks are in `docs/TASKS.md`.
 
 ## Conventions
 

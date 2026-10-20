@@ -14,13 +14,13 @@ A zsh profile (oh-my-zsh, agnoster) ported from Debian to Android/Termux. Goals:
 | `.zshrc` | The profile. Sections: env/PATH, oh-my-zsh, system aliases, navigation, network/SMTP aliases, micro functions, zellij autostart. |
 | `bin/checksmtp.sh` | SMTP port checker (nc, openssl, jq, timeout). |
 | `bin/extract.sh` | Archive extractor. |
-| `bin/whatsmyip.sh` | Local + public IPs. Uses `ip` and `grep -P`. |
+| `bin/whatsmyip.sh` | Local + public IPs. `ip`, falling back to `ifconfig`. |
 
 ## Status
 
 - `setup-termux.sh`: written, syntax-checked, **untested on a device**.
 - `.zshrc`: Debian-isms removed (PATH, editor, nvm, sudo/tailscale plugins, formatusb, flushdns, bookmarks); `pinggw` is now a function. Untested on-device.
-- `bin/`: still the Debian originals, not yet ported.
+- `bin/`: ported (`getent` → `dig`, `grep -P` removed, `7z`/`7zz`, `formatusb.sh` dropped). Untested on-device.
 
 ## Decisions
 

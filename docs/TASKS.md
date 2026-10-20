@@ -3,14 +3,12 @@
 Open work only. One task per commit; delete a task when it's done. If the code doesn't match a task, stop and ask.
 
 ## Needs a device
-- [ ] **V1.** Run `setup-termux.sh` on a fresh Termux; confirm package names (`dnsutils`, `netcat-openbsd`, `7zip`, `zellij`, `openssl-tool`) via `pkg search`; fix any that fail.
+
+Everything below is written and syntax-checked on Windows, but has never run on Termux.
+
+- [ ] **V1.** Run `setup-termux.sh` on a fresh Termux; confirm package names (`dnsutils`, `netcat-openbsd`, `7zip`, `zellij`, `openssl-tool`, `iproute2`, `net-tools`, `procps`) via `pkg search`; fix any that fail.
 - [ ] **V2.** Re-run the script; confirm it's idempotent and `--deploy` backs up existing files.
-
-## M1. `.zshrc`
-- [ ] **Z9.** On-device: new shell prints nothing; `pinggw`, `topcpu`, `ps` alias work (or fail cleanly). `ps auxf` may not work with Android's ps; needs `procps`.
-- [ ] **Z10.** Check `checksmtp` alias still points at a script that runs (B1).
-
-## M2. `bin/`
-- [ ] **B1.** `checksmtp.sh`: `#!/usr/bin/env bash`; verify `nc`, `openssl`, `jq`, `timeout` work on Termux.
-- [ ] **B2.** `whatsmyip.sh`: no `grep -P` dependency; fall back when `ip` is restricted.
-- [ ] **B4.** `extract.sh`: drop `unrar` branch (no Termux package) or make it report that.
+- [ ] **V3.** New shell prints nothing; `pinggw`, `topcpu`, `ps` work or fail cleanly.
+- [ ] **V4.** `myip`: local IPs show (or "Unavailable"), public IPs show.
+- [ ] **V5.** `checksmtp gmail`: DNS resolves via `dig`, ports report OPEN/CLOSED, Tailscale check says "not detected".
+- [ ] **V6.** `extract.sh` on a `.zip`, `.tar.gz`, and `.7z` (confirms the `7zz` binary name).

@@ -2,15 +2,15 @@
 
 Milestones in order. Each is done when its exit line is true on a real device.
 
-## M0. Bootstrap — written, untested
+## M0. Bootstrap — written, untested on-device
 `setup-termux.sh` installs zsh, tools, oh-my-zsh and sets the login shell.
 **Exit:** fresh Termux → run script → `zsh` starts with no errors.
 
-## M1. Port `.zshrc`
+## M1. Port `.zshrc` — done, untested on-device
 Remove or replace the Debian-isms listed in `CONTEXT.md`. Guard optional tools. Fix `pinggw`.
 **Exit:** `zsh -n` clean; new shell prints nothing; every remaining alias works or is absent.
 
-## M2. Port `bin/`
+## M2. Port `bin/` — done, untested on-device
 - `extract.sh`, `checksmtp.sh`: fix shebang, verify deps exist as Termux packages.
 - `whatsmyip.sh`: degrade when `ip`/`grep -P` are unavailable.
 - `formatusb.sh`: dropped (D3).
